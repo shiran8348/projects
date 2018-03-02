@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_margin="15sp"
+    tools:context="com.example.ed_it_art.clientapplication.controller.AddClientActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_marginTop="8sp"
+        android:textColor="@android:color/holo_red_light"
+        android:text="Add new Client"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8sp"
+        android:text="First Name:"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/ET_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:ems="10"
+        android:hint="add..." />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8sp"
+        android:text="Last Name"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/ET_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:ems="10"
+        android:hint="add..." />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8sp"
+        android:text="_id"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/ET_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:ems="10"
+        android:hint="add..." />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8sp"
+        android:text="Email"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/ET_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:ems="10"
+        android:hint="add..." />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8sp"
+        android:text="Credit Card"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/ET_credit_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:ems="10"
+        android:hint="add..." />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8sp"
+                android:text="User Name:"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/ET_userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:ems="10"
+                android:hint="add..." />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8sp"
+                android:text="Password:"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/Et_password2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:ems="10"
+                android:hint="add..." />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8sp"
+                android:text="Repassword"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/Et_password1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:ems="10"
+                android:hint="add..." />
+
+    <Button
+        android:id="@+id/BaddNewClient"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+
+        android:text="add this client"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

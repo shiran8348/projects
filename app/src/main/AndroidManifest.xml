@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ed_it_art.clientapplication">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".controller.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <!--
+            <intent-filter>
+            <action android:name="android.intent.action.BATTERY_LOW" />
+        </intent-filter>
+        -->
+        <receiver android:name=".model.BackEnd.ClientReceiver">
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <!-- <action android:name="com.boukris.RentCar.update"/> -->
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".model.BackEnd.ClientService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".controller.StartActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".controller.AddClientActivity" />
+        <activity android:name=".controller.BranchesActivity" />
+        <activity android:name=".controller.CarsActivity" />
+        <activity android:name=".controller.ClientCarActivity" />
+        <activity android:name=".controller.ContactActivity"></activity>
+    </application>
+
+</manifest>

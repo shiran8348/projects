@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.ed_it_art.clientapplication.controller.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_light"
+        android:text="Take &amp; Go"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

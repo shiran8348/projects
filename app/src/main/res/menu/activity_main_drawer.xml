@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_contacUs"
+            android:icon="@drawable/ic_contactus"
+            android:title="Contac us" />
+        <item
+            android:id="@+id/nav_branches"
+            android:icon="@drawable/ic_branch"
+            android:title="Branches" />
+        <item
+            android:id="@+id/nav_cars"
+            android:icon="@drawable/ic_car"
+            android:title="Cars" />
+        <item
+            android:id="@+id/nav_yourCar"
+            android:icon="@drawable/ic_keycar"
+            android:title="your Cars" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_logOut"
+                android:icon="@drawable/ic_logout"
+                android:title="Log out" />
+        </menu>
+    </item>
+
+</menu>
