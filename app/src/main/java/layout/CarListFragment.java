@@ -2,6 +2,7 @@ package layout;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,18 +35,31 @@ public class CarListFragment extends Fragment {
     DBmanager dBmanager;
     public ListView lv_carLIst;
     public static int sizeOfTheList = 0;
+    carSectionListener carInterface; //activityCommander
+    public static List<String> carListSendToInterface = new ArrayList<String>();
 
     public CarListFragment() {
         // Required empty public constructor
     }
+    //bucky :
 
-    public interface carInterface {
-        public void onCarSelecteted(String choiceCar);
+    public interface carSectionListener {     //TopSelection
+        public void onCarSelecteted(String choiceCar); //createMeme
     }
+
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        try{
+            carInterface = (carSectionListener)context;
+        }catch (ClassCastException e){
+            throw new ClassCastException(context.toString());
+        }
+    }
+
+    public  void buttonClicked(String carSelected){
+        carInterface.onCarSelecteted(carSelected);
     }
 
     @Override
@@ -61,7 +75,8 @@ public class CarListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for (int i = 0; i < sizeOfTheList; i++) {
                     if (position == i) {
-                        Toast.makeText(getActivity(), "position number" + i, Toast.LENGTH_SHORT).show();
+                        buttonClicked(carListSendToInterface.get(i));
+      //                  Toast.makeText(getActivity(), "position number" + i, Toast.LENGTH_SHORT).show();
                         break;
                     }
                 }
@@ -80,7 +95,7 @@ public class CarListFragment extends Fragment {
                         carList.add("model car :  " + car.getModelName()
                                 + "   chairs: " + car.getChairs()
                                 + "  year:  " + car.getYear_car());
-
+                        carListSendToInterface.add(car.getModelName());
                     }
                     ArrayAdapter<String> carArrayAdapter = new ArrayAdapter<String>(
                             getActivity(),

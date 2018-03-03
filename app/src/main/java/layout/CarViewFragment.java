@@ -30,12 +30,14 @@ public class CarViewFragment extends Fragment {
     DBmanager dBmanager;
     ListView lv_branches;
      Boolean flag = false;
+  //  String modelCarSelected = "";
+
+    private static String modelCarSelected = "";
     public  static List<Integer> branchListNum = new ArrayList<Integer>();
     public  static List<String> branchList = new ArrayList<String>();
     public CarViewFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,6 +49,9 @@ public class CarViewFragment extends Fragment {
         getBranchesNumbers();
         return view;
     }
+    public void setModelCarSelected(String modelCar ){
+            modelCarSelected = modelCar;
+    }
 
     public void getBranchesNumbers() {
         try {
@@ -54,7 +59,7 @@ public class CarViewFragment extends Fragment {
                 @Override
                 protected void onPostExecute(List<Car> cars) {
                     for (Car car : cars) {
-                        if(car.getModel_car().matches("TOYOTA")) {
+                        if(car.getModel_car().matches(modelCarSelected)) {
                             branchListNum.add(car.getFix_branch());
                             flag = true;
                         }
