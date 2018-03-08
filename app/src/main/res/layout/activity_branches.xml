@@ -73,25 +73,27 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:layout_height="105dp"
             android:layout_weight="0.07"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="0dp">
+
             <fragment
                 android:id="@+id/fragment4"
                 android:name="layout.BranchViewFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="105dp"
                 tools:layout="@layout/fragment_branch_view" />
 
         </LinearLayout>
 
-
         <Button
-            android:id="@+id/goButton"
+            android:id="@+id/branch_button"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="go to this branch"
-            android:enabled="false"/>
+            android:background="@android:color/holo_red_light"
+            android:enabled="false"
+            android:text="go to this branch" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

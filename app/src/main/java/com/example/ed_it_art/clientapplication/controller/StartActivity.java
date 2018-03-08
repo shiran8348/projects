@@ -159,6 +159,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                             if (checkBox.isChecked())
                                 saveSharedPreferences();
                             Toast.makeText(StartActivity.this, "pleas go in", Toast.LENGTH_SHORT).show();
+                            dBmanager.setIdClient((int)c.get_id());
                             Intent intent1 = new Intent(StartActivity.this, MainActivity.class);
                             startActivity(intent1);
                             f[0] = true;

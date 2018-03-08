@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +35,11 @@ import java.util.List;
 public class CarListFragment extends Fragment {
     DBmanager dBmanager;
     public ListView lv_carLIst;
-    public static int sizeOfTheList = 0;
+    public  int sizeOfTheList = 0;
     carSectionListener carInterface; //activityCommander
-    public static List<String> carListSendToInterface = new ArrayList<String>();
+    carSelectedListner carSelectedListner;
+    public List<ModelCar>List_cars = new ArrayList<ModelCar>();
+    public  List<String> carListSendToInterface = new ArrayList<String>();
 
     public CarListFragment() {
         // Required empty public constructor
@@ -47,19 +50,24 @@ public class CarListFragment extends Fragment {
         public void onCarSelecteted(String choiceCar); //createMeme
     }
 
+    public interface carSelectedListner{    //to carActivity
+        public void onCarSelcted2(ModelCar car);
+    }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         try{
             carInterface = (carSectionListener)context;
+            carSelectedListner = (carSelectedListner)context;
         }catch (ClassCastException e){
             throw new ClassCastException(context.toString());
         }
     }
 
-    public  void buttonClicked(String carSelected){
+    public  void buttonClicked(String carSelected, ModelCar car){
         carInterface.onCarSelecteted(carSelected);
+        carSelectedListner.onCarSelcted2(car);
     }
 
     @Override
@@ -75,8 +83,7 @@ public class CarListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for (int i = 0; i < sizeOfTheList; i++) {
                     if (position == i) {
-                        buttonClicked(carListSendToInterface.get(i));
-      //                  Toast.makeText(getActivity(), "position number" + i, Toast.LENGTH_SHORT).show();
+                        buttonClicked(carListSendToInterface.get(i),List_cars.get(i));//carListSendToInterface.get(i)
                         break;
                     }
                 }
@@ -90,11 +97,12 @@ public class CarListFragment extends Fragment {
             new AsyncTask<Void, Void, List<ModelCar>>() {
                 @Override
                 protected void onPostExecute(List<ModelCar> cars) {
+                    List_cars = cars;
                     List<String> carList = new ArrayList<String>();
                     for (ModelCar car : cars) {
                         carList.add("model car :  " + car.getModelName()
-                                + "   chairs: " + car.getChairs()
-                                + "  year:  " + car.getYear_car());
+                                + ",   chairs: " + car.getChairs()
+                                + ",  year:  " + car.getYear_car());
                         carListSendToInterface.add(car.getModelName());
                     }
                     ArrayAdapter<String> carArrayAdapter = new ArrayAdapter<String>(

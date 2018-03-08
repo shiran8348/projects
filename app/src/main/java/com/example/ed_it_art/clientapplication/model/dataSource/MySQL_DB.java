@@ -34,6 +34,16 @@ import static com.example.ed_it_art.clientapplication.model.utils.RentsConst.Con
  */
 public class MySQL_DB  implements DBmanager{
     private final String WEB_URL = "http://boukris.vlab.jct.ac.il/phpRentCar/";
+    private Integer id;
+    @Override
+    public void setIdClient(Integer idClient) {
+        id = idClient;
+    }
+
+    @Override
+    public Integer getIdClient() {
+        return id;
+    }
 
     @Override
     public boolean existClient(final ContentValues client) {
@@ -280,7 +290,7 @@ public class MySQL_DB  implements DBmanager{
 
     @Override
     public List<Order> ListOrderOpen() {
-        final List<Order>orderOpen=null;
+        final List<Order> orderOpen=null;
         try {
             new AsyncTask<Void, Void, List<Order>>() {
 
@@ -300,7 +310,7 @@ public class MySQL_DB  implements DBmanager{
         }catch (Exception e){
 
         }
-        return null;
+        return orderOpen;
     }
 
     @Override

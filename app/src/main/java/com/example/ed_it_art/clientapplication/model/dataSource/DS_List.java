@@ -33,6 +33,15 @@ public class DS_List implements DBmanager {
     }
 
 
+    @Override
+    public void setIdClient(Integer idClient) {
+
+    }
+
+    @Override
+    public Integer getIdClient() {
+        return null;
+    }
 
     @Override
     public boolean existClient(ContentValues client) {

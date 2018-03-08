@@ -17,6 +17,8 @@ import java.util.List;
  */
 
 public interface DBmanager {
+    void setIdClient(Integer idClient);
+    Integer getIdClient();
     boolean existClient(ContentValues client);
     String addClient(ContentValues client);
     void updateCar(ContentValues car, double km);
