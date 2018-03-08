@@ -1,95 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android=
+    "http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ed_it_art.clientapplication.controller.ClientCarActivity">
+    tools:context="com.example.ed_it_art.clientapplication.controller.ClientCarActivity"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-        <TextView
-            android:id="@+id/carDetailsTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp" />
-        <FrameLayout
-            android:layout_width="368dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Car:"
+        android:textSize="24sp"
+        android:textColor="@android:color/holo_red_light"
+        android:textStyle="bold|italic"
+        android:typeface="serif"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="22dp"
+        android:text="Car Details:" />
+
+
+    <TextView
+        android:id="@+id/tv_modelCar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="model"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="bottom"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@android:color/black"
+        android:textSize="22dp"
+        android:text="Client Details:" />
+
+    <TextView
+        android:id="@+id/tv_Client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="client"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="bottom"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/remove_button"
+        android:layout_gravity="center"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:text="free this car" />
+    <ScrollView
+        android:id="@+id/SV_freeCar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
         <LinearLayout
-            android:id="@+id/releaseSegment"
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="invisible"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <TextView
-                style="?android:attr/listSeparatorTextViewStyle"
-                android:paddingTop="5dip"
-                android:gravity="center_horizontal"
-                android:layout_below="@+id/connect_help"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Current mileage: "/>
-                <EditText
-                    android:id="@+id/mileageEditText"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="gas refiled? "/>
-                <ToggleButton
-                    android:id="@+id/toggleButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ToggleButton"
-                    android:textOn="yes"
-                    android:textOff="no"/>
-                <EditText
-                    android:id="@+id/litersEditText"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Liters"
-                    android:enabled="false"/>
-            </LinearLayout>
-            <Button
-                android:id="@+id/releaseButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="release car"
-                android:textSize="20dp"/>
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:text="start KiloMeter" />
+
+            <EditText
+                android:id="@+id/ET_startKM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:text="EndKiloMeter" />
+            <EditText
+                android:id="@+id/ET_endKM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="end km" />
+            <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:text="Amount FUEL:" />
+            <EditText
+                android:id="@+id/ET_amountFuel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="fuel" />
+
+
+
         </LinearLayout>
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>
 

@@ -163,7 +163,7 @@
         android:id="@+id/BaddNewClient"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-
+        android:background="@android:color/holo_red_light"
         android:text="add this client"/>
         </LinearLayout>
     </ScrollView>

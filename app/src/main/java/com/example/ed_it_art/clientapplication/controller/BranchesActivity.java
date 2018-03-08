@@ -44,7 +44,7 @@ BranchViewFragment.BranchSelectedListner {
         dBmanager = DBManagerFactory.GetDB();
         findViews();
     }
-
+    int orderNumberChangable = 6;
     String modelString = "";
     int branchNumString;
     String numberCarString;
@@ -111,7 +111,7 @@ BranchViewFragment.BranchSelectedListner {
             finalOrder.setCar_rental_start(dateFormat.format(date));//dateFormat.format(date)
             finalOrder.setId_client(dBmanager.getIdClient());
             finalOrder.setNumber_car(numberCarString);
-            finalOrder.setNumber_order(4);
+            finalOrder.setNumber_order(orderNumberChangable);
             new AsyncTask<Object, Object, String>() {
                 @Override
                 protected void onPostExecute(String s) {
@@ -119,6 +119,7 @@ BranchViewFragment.BranchSelectedListner {
                         Toast.makeText(getBaseContext(), "oooopppssseee", Toast.LENGTH_SHORT).show();
                         finish();
                     }
+                    orderNumberChangable+=2;
                 }
 
                 @Override

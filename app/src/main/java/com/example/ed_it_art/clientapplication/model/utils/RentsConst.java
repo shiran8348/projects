@@ -155,6 +155,9 @@ public class RentsConst {
         modelCar.setChairs(contentValues.getAsInteger(RentsConst.ModelCarConst.CHAIRS));
         return modelCar;
     }
+/**
+ * order const
+ * */
 
     public static class OrdersConst {
         public static final String ID_CLIENT = "id_client";
@@ -194,7 +197,7 @@ public class RentsConst {
 
     public static Order ContentValuesToOrder(ContentValues contentValues) {
         Order order = new Order();
-        order.setId_client(contentValues.getAsInteger(OrdersConst.ID_CLIENT));
+        order.setId_client(contentValues.getAsLong(OrdersConst.ID_CLIENT));
         order.setOrder_open(contentValues.getAsBoolean(OrdersConst.ORDER_OPEN));
         order.setNumber_car(contentValues.getAsString(OrdersConst.NUMBER_CAR));
         order.setCar_rental_start(contentValues.getAsString(OrdersConst.CAR_RENTAL_SATRT));

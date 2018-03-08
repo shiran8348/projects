@@ -39,6 +39,7 @@ public class CarsActivity extends AppCompatActivity  implements CarListFragment.
     }
 
     boolean isFlagCar= false;
+    int orderNumberChangAble = 7;
 
     String carNumberString;
     String carModelString;
@@ -119,7 +120,7 @@ public class CarsActivity extends AppCompatActivity  implements CarListFragment.
             finalOrder.setCar_rental_start(dateFormat.format(date));//dateFormat.format(date)
             finalOrder.setId_client(dBmanager.getIdClient());
             finalOrder.setNumber_car(carNumberString);
-            finalOrder.setNumber_order(5);
+            finalOrder.setNumber_order(orderNumberChangAble);
 
             new AsyncTask<Object, Object, String>() {
                 @Override
@@ -128,6 +129,7 @@ public class CarsActivity extends AppCompatActivity  implements CarListFragment.
                         Toast.makeText(getBaseContext(), "oooopppssseee", Toast.LENGTH_SHORT).show();
                         finish();
                     }
+                    orderNumberChangAble+=2;
                 }
                 @Override
                 protected String doInBackground(Object... params) {

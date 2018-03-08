@@ -7,7 +7,7 @@ import java.util.Date;
  */
 
 public class Order {
-    private int id_client;
+    private long id_client;
     private boolean order_open;
     private String number_car;
     private String car_rental_start;
@@ -44,11 +44,11 @@ public class Order {
         this.number_branch = number_branch;
     }
 
-    public int getId_client() {
+    public long getId_client() {
         return id_client;
     }
 
-    public void setId_client(int id_client) {
+    public void setId_client(long id_client) {
         this.id_client = id_client;
     }
 
