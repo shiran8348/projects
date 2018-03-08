@@ -59,6 +59,11 @@ public class DS_List implements DBmanager {
     }
 
     @Override
+    public void updateOrder(ContentValues car, double km, double aountFuel) {
+
+    }
+
+    @Override
     public List<Client> ListClient() {
         return clientList;
     }

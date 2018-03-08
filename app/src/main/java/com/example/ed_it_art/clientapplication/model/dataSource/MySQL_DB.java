@@ -64,7 +64,7 @@ public class MySQL_DB  implements DBmanager{
             }.execute();
 
         }catch (Exception e){
-
+e.printStackTrace();
         }
         return flag[0];
     }
@@ -95,10 +95,30 @@ public class MySQL_DB  implements DBmanager{
                 }
             }.execute();
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
+    @Override
+    public void updateOrder(final ContentValues order, final double km, final double amount_fuel) {
+        try{
+            new AsyncTask<Void, Void, List<Order>>() {
+                @Override
+                protected void onPostExecute(List<Order> orders) {
+                    if (orders.contains(order)) {
+                        order.put(RentsConst.OrdersConst.END_KM, km);
+                        order.put(RentsConst.OrdersConst.AMOUNT_FUEL, amount_fuel);
+                    }
+                }
 
+                @Override
+                protected List<Order> doInBackground(Void... params) {
+                    return ListOrder();
+                }
+            }.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Override
     public List<Client> ListClient() {
         List<Client> result = new ArrayList<Client>();

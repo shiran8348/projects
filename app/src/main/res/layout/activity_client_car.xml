@@ -122,6 +122,15 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="fuel" />
+            <Button
+                android:id="@+id/remove_theCAR"
+                android:layout_gravity="center"
+                android:layout_marginRight="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:text="REMOVE" />
 
 
 

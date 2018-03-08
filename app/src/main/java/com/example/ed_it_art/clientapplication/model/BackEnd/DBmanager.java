@@ -22,6 +22,7 @@ public interface DBmanager {
     boolean existClient(ContentValues client);
     String addClient(ContentValues client);
     void updateCar(ContentValues car, double km);
+    void updateOrder(ContentValues car, double km,double aountFuel);
     List<Client> ListClient();
     List<Branch> ListBranch();
     List<Car> ListCars();

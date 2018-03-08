@@ -1,5 +1,6 @@
 package com.example.ed_it_art.clientapplication.controller;
 
+import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,11 +14,12 @@ import android.widget.Toast;
 import com.example.ed_it_art.clientapplication.R;
 import com.example.ed_it_art.clientapplication.model.BackEnd.DBManagerFactory;
 import com.example.ed_it_art.clientapplication.model.BackEnd.DBmanager;
-import com.example.ed_it_art.clientapplication.model.entities.Car;
 import com.example.ed_it_art.clientapplication.model.entities.Client;
 import com.example.ed_it_art.clientapplication.model.entities.Order;
 
 import java.util.List;
+
+import static com.example.ed_it_art.clientapplication.model.utils.RentsConst.OrderToContentValues;
 
 public class ClientCarActivity extends AppCompatActivity implements View.OnClickListener{
     DBmanager dBmanager;
@@ -32,11 +34,18 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
 
     TextView tv_car;
     TextView tv_client;
+
     ScrollView scrollView;
     Button B_free;
+    Button B_remove;
+
     EditText Et_startKM;
     EditText Et_endKM;
-    EditText fuel;
+    EditText ET_fuel;
+
+    String startKM;
+    String endKM;
+    String fuel;
 
     Client finalClient = new Client();
     Order finalOrder = new Order();
@@ -45,18 +54,40 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
         tv_car = (TextView) findViewById(R.id.tv_modelCar);
         tv_client = (TextView) findViewById(R.id.tv_Client);
         scrollView   = (ScrollView)findViewById(R.id.SV_freeCar);
-        B_free = (Button)findViewById(R.id.remove_button);
+
         Et_endKM = (EditText)findViewById(R.id.ET_endKM);
         Et_startKM = (EditText)findViewById(R.id.ET_startKM);
-        fuel = (EditText)findViewById(R.id.ET_amountFuel);
+        ET_fuel = (EditText)findViewById(R.id.ET_amountFuel);
+
+        B_free = (Button)findViewById(R.id.remove_button);
+        B_remove = (Button)findViewById(R.id.remove_theCAR);
         B_free.setOnClickListener(this);
+        B_remove.setOnClickListener(this);
         setClient();
         setCar();
+    }
+    public void setViews(){
+        startKM = Et_startKM.getText().toString();
+        endKM = Et_endKM.getText().toString();
+        fuel = ET_fuel.getText().toString();
     }
     @Override
     public void onClick(View v) {
         if(v == B_free){
-            scrollView.setVisibility(View.VISIBLE);
+            if(scrollView.getVisibility() == View.INVISIBLE) {
+                scrollView.setVisibility(View.VISIBLE);
+                B_free.setText("i regret");
+                if (v == B_remove) {
+                    setViews();
+                    setInOrder();
+                    Toast.makeText(ClientCarActivity.this,"update and removed succefully",Toast.LENGTH_SHORT).show();
+                }
+            }
+            else {
+                scrollView.setVisibility(View.INVISIBLE);
+                B_free.setText("FREE THIS CAR");
+            }
+
      //       Toast.makeText(ClientCarActivity.this, "this"+a,Toast.LENGTH_SHORT).show();
         }
     }
@@ -97,9 +128,9 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
             new AsyncTask<Void, Void, List<Order>>() {
                 @Override
                 protected void onPostExecute(List<Order> orders) {
-      //              int size = orders.size();
-   //                 Toast.makeText(ClientCarActivity.this, "this" + size, Toast.LENGTH_SHORT).show();
-/*                  for (Order order : orders) {
+       //             int size = orders.size();
+       //            Toast.makeText(ClientCarActivity.this, "this" + size, Toast.LENGTH_SHORT).show();
+                  for (Order order : orders) {
                       if (order.getId_client() == dBmanager.getIdClient()) {
 
                             finalOrder.setNumber_car(order.getNumber_car());
@@ -112,7 +143,9 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
                     tv_car.setText("carNUMBER : " + finalOrder.getNumber_car() + "\n"
                             + "branch number : "  + finalOrder.getNumber_branch() + "\n"
                             + "number order : " + finalOrder.getNumber_order() + "\n");
- */               }
+                    Toast.makeText(ClientCarActivity.this, "this" + finalOrder.getNumber_order(), Toast.LENGTH_SHORT).show();
+
+                }
 
                 @Override
                 protected List<Order> doInBackground(Void... params) {
@@ -123,5 +156,21 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    public void setInOrder(){
+        try{
+            new AsyncTask<Void,Void, Void>() {
+
+                @Override
+                protected Void doInBackground(Void... params) {
+                    dBmanager.updateOrder(OrderToContentValues(finalOrder),
+                            Double.parseDouble(endKM),Double.parseDouble( fuel));
+                    return null;
+                }
+
+            }.execute();
+        }catch (Exception e){
+
+        }
+    }
 
 }
