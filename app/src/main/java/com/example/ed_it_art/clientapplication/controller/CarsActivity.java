@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.ed_it_art.clientapplication.R;
@@ -47,6 +48,8 @@ public class CarsActivity extends AppCompatActivity  implements CarListFragment.
 
     DBmanager dBmanager;
     Button buttonAprove;
+    SearchView searchView;
+
     boolean flagBranch;
     boolean flagCar;
     ModelCar modelCar = new ModelCar();
@@ -61,7 +64,6 @@ public class CarsActivity extends AppCompatActivity  implements CarListFragment.
         CarViewFragment carViewFragment = (CarViewFragment )
                 getSupportFragmentManager().findFragmentById(R.id.fragment3);
         carViewFragment.setModelCarSelected(choiceCar);
-
         isFlagCar = true;
     }
 
@@ -79,6 +81,7 @@ public class CarsActivity extends AppCompatActivity  implements CarListFragment.
         modelCar = car;
 //        Toast.makeText(CarsActivity.this,"3this -> " + modelCar.getModelName(), Toast.LENGTH_SHORT).show();
         flagCar = true;
+        buttonAprove.setEnabled(false);
 
     }
     @Override
@@ -94,6 +97,7 @@ public class CarsActivity extends AppCompatActivity  implements CarListFragment.
         setViews();
     }
     public void findViews() {
+        searchView = (SearchView)findViewById(R.id.searchViewCars);
         buttonAprove = (Button) findViewById(R.id.cars_button);
     }
     public void setViews(){

@@ -49,6 +49,7 @@ BranchViewFragment.BranchSelectedListner {
     int branchNumString;
     String numberCarString;
     Button buttonAprove;
+    SearchView searchView;
     DBmanager dBmanager;
     ModelCar modelCarFinal = new ModelCar();
     Order finalOrder = new Order();
@@ -69,6 +70,7 @@ BranchViewFragment.BranchSelectedListner {
         branchNumString = branch.getBranch_number();
  //       Toast.makeText(BranchesActivity.this, "branch this -> " + branchNumString, Toast.LENGTH_SHORT).show();
         flagBranch = true;
+        buttonAprove.setEnabled(false);
     }
 
     @Override
