@@ -105,6 +105,7 @@ e.printStackTrace();
                 @Override
                 protected void onPostExecute(List<Order> orders) {
                     if (orders.contains(order)) {
+                        order.put(RentsConst.OrdersConst.ORDER_OPEN ,"false");
                         order.put(RentsConst.OrdersConst.END_KM, km);
                         order.put(RentsConst.OrdersConst.AMOUNT_FUEL, amount_fuel);
                     }

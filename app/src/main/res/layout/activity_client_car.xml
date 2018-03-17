@@ -7,7 +7,8 @@
     tools:context="com.example.ed_it_art.clientapplication.controller.ClientCarActivity"
     android:orientation="vertical"
     android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="10dp"
+    android:weightSum="1">
 
 
     <TextView
@@ -72,10 +73,11 @@
     <ScrollView
         android:id="@+id/SV_freeCar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible">
+        android:layout_height="185dp"
+        android:visibility="invisible"
+        android:layout_marginTop="15dp"
+        android:layout_weight="0.22">
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -129,6 +131,7 @@
                 android:layout_marginLeft="80dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:background="@android:color/holo_red_light"
                 android:text="REMOVE" />
 

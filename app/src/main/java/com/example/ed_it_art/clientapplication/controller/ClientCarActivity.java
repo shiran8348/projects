@@ -49,7 +49,6 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
 
     Client finalClient = new Client();
     Order finalOrder = new Order();
-
     public void findViews() {
         tv_car = (TextView) findViewById(R.id.tv_modelCar);
         tv_client = (TextView) findViewById(R.id.tv_Client);
@@ -77,11 +76,9 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
             if(scrollView.getVisibility() == View.INVISIBLE) {
                 scrollView.setVisibility(View.VISIBLE);
                 B_free.setText("i regret");
-                if (v == B_remove) {
-                    setViews();
-                    setInOrder();
-                    Toast.makeText(ClientCarActivity.this,"update and removed succefully",Toast.LENGTH_SHORT).show();
-                }
+                B_remove.setOnClickListener(this);
+                B_remove.isClickable();
+
             }
             else {
                 scrollView.setVisibility(View.INVISIBLE);
@@ -89,6 +86,18 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
             }
 
      //       Toast.makeText(ClientCarActivity.this, "this"+a,Toast.LENGTH_SHORT).show();
+        }
+        if (v == B_remove) {
+            setViews();
+            if (startKM.matches("")||
+                    endKM.matches("")||
+                    fuel.matches("")) {
+            Toast.makeText(ClientCarActivity.this,"need do insert all paramters",Toast.LENGTH_SHORT).show();
+            }
+            else {
+                setInOrder();
+                Toast.makeText(ClientCarActivity.this, "update and removed succefully", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -131,8 +140,8 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
        //             int size = orders.size();
        //            Toast.makeText(ClientCarActivity.this, "this" + size, Toast.LENGTH_SHORT).show();
                   for (Order order : orders) {
-                      if (order.getId_client() == dBmanager.getIdClient()) {
-
+                      if (order.getId_client() == dBmanager.getIdClient())
+                        if(order.isOrder_open()){
                             finalOrder.setNumber_car(order.getNumber_car());
                             finalOrder.setNumber_branch(order.getNumber_branch());
                             finalOrder.setNumber_order(order.getNumber_order());
@@ -166,7 +175,6 @@ public class ClientCarActivity extends AppCompatActivity implements View.OnClick
                             Double.parseDouble(endKM),Double.parseDouble( fuel));
                     return null;
                 }
-
             }.execute();
         }catch (Exception e){
 

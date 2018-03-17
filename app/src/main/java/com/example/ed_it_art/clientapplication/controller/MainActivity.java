@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.ed_it_art.clientapplication.R;
 import com.example.ed_it_art.clientapplication.model.BackEnd.ClientReceiver;
@@ -111,7 +112,9 @@ DBmanager dBmanager;
 
         } else if (id == R.id.nav_logOut) {
             Intent intent = new Intent(MainActivity.this, StartActivity.class);
+            finish();
             startActivity(intent);
+            Toast.makeText(MainActivity.this,"you have disconnect",Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
